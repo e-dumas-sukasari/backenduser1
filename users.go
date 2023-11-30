@@ -13,7 +13,7 @@ import (
 
 func SubmitReport(MongoEnv, dbname, colname, publickey string, r *http.Request) string {
     resp := new(pasproj.Credential)
-    req := new(Report)
+    req := new(pasproj.Report) // Adjust the type here
     conn := pasproj.MongoCreateConnection(MongoEnv, dbname)
     tokenlogin := r.Header.Get("Login")
 
