@@ -16,8 +16,8 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dnaeon/go-vcr v1.1.0/go.mod h1:M7tiix8f0r6mKKJ3Yq/kqU1OYf3MnfmBWVbPx/yU9ko=
 github.com/dnaeon/go-vcr v1.2.0/go.mod h1:R4UdLID7HZT3taECzJs4YgbbH6PIGXB6W/sc5OLb6RQ=
-github.com/e-dumas-sukasari/webpasetobackend v0.0.2 h1:Gs7CMlDKYFfh+qZ4UhHjP2N4NAMfGG7HB0Eu9gDXKFo=
-github.com/e-dumas-sukasari/webpasetobackend v0.0.2/go.mod h1:ImGptRvkZFFu9l08WvqRV7ikV/3DrcAs9pHFYUKBgRs=
+github.com/e-dumas-sukasari/webpasetobackend v0.0.3 h1:ZoMum/702UuHXQywvibjzAxMohxyJIfT750EDNkB6Kc=
+github.com/e-dumas-sukasari/webpasetobackend v0.0.3/go.mod h1:ImGptRvkZFFu9l08WvqRV7ikV/3DrcAs9pHFYUKBgRs=
 github.com/go-sql-driver/mysql v1.7.1 h1:lUIinVbN1DY0xBg0eMOzmmtGoHwWBbvnWubQUrtU8EI=
 github.com/go-sql-driver/mysql v1.7.1/go.mod h1:OXbVy3sEdcQ2Doequ6Z5BW6fXNQTmx+9S1MCJN5yJMI=
 github.com/gofiber/fiber/v2 v2.51.0 h1:JNACcZy5e2tGApWB2QrRpenTWn0fq0hkFm6k0C86gKQ=
