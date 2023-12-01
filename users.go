@@ -3,7 +3,6 @@ package backenduser1
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"os"
 
@@ -13,7 +12,7 @@ import (
 
 func SubmitReport(MongoEnv, dbname, colname, publickey string, r *http.Request) string {
     resp := new(pasproj.Credential)
-    req := new(pasproj.Report) // Adjust the type here
+    req := new(pasproj.Report)
     conn := pasproj.MongoCreateConnection(MongoEnv, dbname)
     tokenlogin := r.Header.Get("Login")
 
@@ -26,30 +25,13 @@ func SubmitReport(MongoEnv, dbname, colname, publickey string, r *http.Request) 
             resp.Status = false
             resp.Message = "Anda tidak memiliki izin untuk mengirim laporan"
         } else {
-            // Parse form fields
-            err := r.ParseMultipartForm(5 << 20) // 5 MB limit for file upload
-            if err != nil {
+            // Parse JSON request body
+            decoder := json.NewDecoder(r.Body)
+            if err := decoder.Decode(&req); err != nil {
                 resp.Status = false
-                resp.Message = "Error parsing form: " + err.Error()
+                resp.Message = "Error decoding JSON request: " + err.Error()
                 return pasproj.ReturnStringStruct(resp)
             }
-
-            req.Title = r.FormValue("title")
-            req.Description = r.FormValue("description")
-            req.DateOccurred = r.FormValue("dateOccurred")
-
-            // Handle file upload
-            file, handler, err := r.FormFile("fileAttachment")
-            if err != nil {
-                resp.Status = false
-                resp.Message = "Error uploading file: " + err.Error()
-                return pasproj.ReturnStringStruct(resp)
-            }
-            defer file.Close()
-
-            // Save the file to disk or handle it as needed
-            // For simplicity, let's just print the file name
-            fmt.Println("Received file:", handler.Filename)
 
             // Perform your logic to save the report data to the database using conn
             // Example: pasproj.InsertReportData(conn, colname, req)
@@ -65,6 +47,7 @@ func SubmitReport(MongoEnv, dbname, colname, publickey string, r *http.Request) 
     }
     return pasproj.ReturnStringStruct(resp)
 }
+
 
 
 // reg User

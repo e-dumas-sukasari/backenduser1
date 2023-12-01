@@ -3,13 +3,13 @@ package backenduser1
 import (
 	pasproj "github.com/e-dumas-sukasari/webpasetobackend"
 )
-
 type Report struct {
-	Title         string `json:"title"`
-	Description   string `json:"description"`
-	DateOccurred  string `json:"dateOccurred"`
-	FileData      []byte `json:"fileData"` // Binary file data
+    Title         string `json:"title"`
+    Description   string `json:"description"`
+    DateOccurred  string `json:"dateOccurred"`
+    FileAttachment string `json:"fileAttachment"`
 }
+
 type ResponseBack struct {
 	Status  int      `json:"status"`
 	Message string   `json:"message"`
